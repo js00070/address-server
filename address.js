@@ -22,7 +22,10 @@ app.get('/address', function (req, res) {
     }
     try{
         const query_id = req.query.id
-        console.log(query_id)
+        console.log(query_id.length)
+        if(query_id.length == 0){
+            extractFromMap(addressMap)
+        }
         // 省级
         if(query_id.length == 2){
             const cityMap = addressMap[query_id].cities
